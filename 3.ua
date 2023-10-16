@@ -3,34 +3,11 @@ Input ← "^^<<v<<v><v^^<><>^^<v<v^>>^^^><^>v^>v><><><<vv^^<^>^^<v^>v>v^v>>>^<>v
 ArrowChars ← [@< @> @^ @v]
 ArrowFuncs ← [[¯1 0] [1 0] [0 1] [0 ¯1]]
 Displacements ← ⊏∶ArrowFuncs ⊗∶ArrowChars Input
-PartA ← ⧻⊝~\+ ⊂[0 0]
+PartA ← ⧻⊝\+ ⊂[0 0]
 PartA Displacements
-# ExplodeArray ← /⊔ ⇌ ⊏ ∶ ArrowFuncs ⊚ ∶ ArrowChars Input
-# navigate :: Point -> String -> [Point] -> [Point]
-# navigate currentPoint [] path = do
-#     path ++ [currentPoint]
-# 
-# navigate currentPoint (curDir:restDir) path = do
-#     let move = toPoint curDir
-#     let nextPoint = addPoints currentPoint move
-#     let newPath = if move == (Point 0 0) then path else path ++ [currentPoint]
-#     navigate nextPoint restDir newPath
-# 
-# evenOddSplit [] = ([], [])
-# evenOddSplit (x:xs) = (x:o, e)
-#     where (e,o) = evenOddSplit xs
-# 
-# main = do
-#     directions <- readFile "inp.txt"
-#     let path = navigate (Point 0 0) directions []
-#     let uniqueHouses = nub path
-# 
-#     putStrLn ("Ans 1: " ++ show (length uniqueHouses))
-# 
-#     let multiDirections = evenOddSplit directions
-#     let pathSanta = navigate (Point 0 0) (fst multiDirections) []
-#     let pathRobot = navigate (Point 0 0) (snd multiDirections) []
-#     let paths = pathSanta ++ pathRobot
-#     let uniqueHouses2 = nub paths
-# 
-#     putStrLn ("Ans 2: " ++ show (length uniqueHouses2))
+
+# Part B, non-idiomatic
+÷2 ⧻ Displacements
+⊃(×2⇡)(+1×2⇡)
+⊏∶Displacements∶⊏ ∶Displacements
+⧻ ⊝ ⊂\+⊂[0 0]∶\+ ⊂[0 0]
